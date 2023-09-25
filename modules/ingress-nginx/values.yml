@@ -1,0 +1,10 @@
+---
+controller:
+  # hostPort:
+  #   enabled: true
+
+  ingressClassResource:
+    default: true
+
+  # service:
+  #   type: ClusterIP

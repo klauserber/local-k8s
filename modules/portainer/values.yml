@@ -1,0 +1,10 @@
+---
+service:
+  type: ClusterIP
+
+ingress:
+  enabled: true
+  hosts:
+    - host: portainer{{ .Env.DOMAIN_SUFFIX }}
+      paths:
+        - path: "/"
