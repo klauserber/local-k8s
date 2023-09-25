@@ -14,12 +14,19 @@ Do **not** clone this repo now. We do this later in the devbox container.
 
 ## Start the devbox container
 
+Linux/MacOS:
 ```bash
 docker run -it --hostname devbox -p 2080:2080 --rm \
   -v devboxhome:/home/coder \
   -v ${HOME}/.kube/config:/home/coder/.kube/config \
   isi006/localcluster-devbox:latest
 ```
+Windows:
+```
+docker run -it --hostname devbox -p 2080:2080 --rm -v devboxhome:/home/coder -v %userprofile%/.kube/config:/home/coder/.kube/config isi006/localcluster-devbox:latest
+```
+
+
 Visit http://localhost:2080/ to access the devbox IDE.
 
 ## Activate Kubernetes on Docker Desktop
