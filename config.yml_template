@@ -1,3 +1,5 @@
 ---
-subdomain_suffix: -isium
-domain_suffix: -isium.loca.lt
+subdomain_suffix: -CHANGEME
+domain_suffix: -CHANGEME.loca.lt
+
+local_domain_suffix: .127.0.0.1.nip.io

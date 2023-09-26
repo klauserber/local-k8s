@@ -36,6 +36,11 @@ Open a terminal and check if it works:
 ```bash
 kubectl cluster-info
 ```
+## Clone the repo in the devbox
+
+```bash
+git clone https://github.com/klauserber/local-k8s.git
+```
 
 ## Minimal infrastructure setup
 

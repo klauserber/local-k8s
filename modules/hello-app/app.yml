@@ -51,7 +51,7 @@ metadata:
   name: hello-public-ingress
 spec:
   rules:
-    - host: hello{{ .config.domain_suffix }}
+    - host: hello{{ .config.local_domain_suffix }}
       http:
         paths:
           - path: /
@@ -83,7 +83,7 @@ spec:
           image: isi006/localtunnel-client:latest
           args:
             - --port=80
-            - --subdomain=hello{{ .config.subdomain_suffix }}
+            - --subdomain=hello{{ .config.public_subdomain_suffix }}
             - --local-host=hello-app
             - --print-requests
           resources:
