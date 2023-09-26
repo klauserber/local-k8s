@@ -12,6 +12,10 @@ Do **not** clone this repo now. We do this later in the devbox container.
 
 - Docker Desktop: https://www.docker.com/products/docker-desktop/
 
+Activate Kubernetes on Docker Desktop:
+
+-> Docker Desktop -> Preferences -> Kubernetes -> Enable Kubernetes
+
 ## Start the devbox container
 
 Linux/MacOS:
@@ -19,33 +23,19 @@ Linux/MacOS:
 docker run -it --hostname devbox -p 2080:2080 --rm \
   -v devboxhome:/home/coder \
   -v ${HOME}/.kube/config:/home/coder/.kube/config \
-  isi006/localcluster-devbox:latest
+  isi006/code-server-k8s:latest
 ```
 Windows:
 ```
-docker run -it --hostname devbox -p 2080:2080 --rm -v devboxhome:/home/coder -v %userprofile%/.kube/config:/home/coder/.kube/config isi006/localcluster-devbox:latest
+docker run -it --hostname devbox -p 2080:2080 --rm -v devboxhome:/home/coder -v %userprofile%/.kube/config:/home/coder/.kube/config isi006/code-server-k8s:latest
 ```
-
-
 Visit http://localhost:2080/ to access the devbox IDE.
 
-## Activate Kubernetes on Docker Desktop
-
--> Docker Desktop -> Preferences -> Kubernetes -> Enable Kubernetes
-
-check if it works:
+Open a terminal and check if it works:
 
 ```bash
 kubectl cluster-info
 ```
-
-- kubectl: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-- helm: https://helm.sh/docs/using_helm/#installing-helm
-
-optional:
-
-- Lens: https://k8slens.dev/
-
 
 ## Minimal infrastructure setup
 
