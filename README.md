@@ -1,5 +1,7 @@
 # local development cluster
 
+**This is work in progress**
+
 A short way to get a local kubernetes development cluster up and running on a local machine with Docker Desktop and expose apps to the internet for testing purposes.
 
 Do **not** clone this repo now. We do this later in the devbox container.
@@ -47,7 +49,7 @@ git clone https://github.com/klauserber/local-k8s.git
 ### configure
 
 ```bash
-cp config-template config
+cp config.yml_template config.yml
 ```
 
 Edit the config file to choose your domain suffix to build unique localtunnel subdomains.
