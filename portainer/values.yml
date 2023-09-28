@@ -5,6 +5,6 @@ service:
 ingress:
   enabled: true
   hosts:
-    - host: portainer{{ .Env.DOMAIN_SUFFIX }}
+    - host: portainer{{ .config.local_domain_suffix }}
       paths:
         - path: "/"

@@ -61,3 +61,34 @@ spec:
                 name: hello-app
                 port:
                   number: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-app-tunnel
+  labels:
+    app: hello-app-tunnel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-app-tunnel
+  template:
+    metadata:
+      labels:
+        app: hello-app-tunnel
+    spec:
+      containers:
+        - name: hello-app-tunnel
+          image: isi006/localtunnel-client:latest
+          args:
+            - --port=80
+            - --subdomain=hello{{ .config.public_subdomain_suffix }}
+            - --local-host=hello-app
+            - --print-requests
+          resources:
+            limits:
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi

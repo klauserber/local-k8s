@@ -22,14 +22,14 @@ Activate Kubernetes on Docker Desktop:
 
 Linux/MacOS:
 ```bash
-docker run -it --hostname devbox -p 2080:2080 --rm \
+docker run -d --hostname devbox -p 2080:2080 --rm \
   -v devboxhome:/home/coder \
   -v ${HOME}/.kube/config:/home/coder/.kube/config \
   isi006/code-server-k8s:latest
 ```
 Windows:
 ```
-docker run -it --hostname devbox -p 2080:2080 --rm -v devboxhome:/home/coder -v %userprofile%/.kube/config:/home/coder/.kube/config isi006/code-server-k8s:latest
+docker run -d --hostname devbox -p 2080:2080 --rm -v devboxhome:/home/coder -v %userprofile%/.kube/config:/home/coder/.kube/config isi006/code-server-k8s:latest
 ```
 Visit http://localhost:2080/ to access the devbox IDE.
 
@@ -60,7 +60,7 @@ Edit the config file to choose your domain suffix to build unique localtunnel su
 
 ```bash
 cd ingress-nginx
-./up.sh
+./run.sh
 ```
 
 check if it works:
@@ -69,15 +69,46 @@ check if it works:
 kubectl get all -n ingress-nginx
 ```
 
-## Install hello-app
+## Test the system with the hello-app
+
+### Deploy the app
 
 ```bash
 cd hello-app
-./up.sh
+./run.sh
 ```
 
-check if it works:
+### Testing
 
 ```bash
 kubectl get all -n hello-app
 ```
+
+Visit http://hello.127.0.0.1.nip.io for local access. <br>
+Visit https://hello{{public_domain_suffix}} for public access.
+
+### Undeploy the app
+
+```bash
+./run.sh -d
+```
+
+## Optional: Deploy portainer
+
+You can install Portainer to get more insights about the cluster.
+
+```bash
+cd portainer
+./run.sh
+```
+Visit the app at http://portainer.127.0.0.1.nip.io
+
+## Next steps?
+
+This is a good starting point to play around with kubernetes on your local machine. So what can you do next?
+
+* Inspect the code to figure out how it works. It is not so intensive.
+* If you need help go to https://kubernetes.io in the first place.
+* Deploy more apps, it is a big ecosystem, have a look at https://artifacthub.io
+* Containerize your own app (https://docs.docker.com/engine/reference/builder/) and deploy it.
+* Learn how to package your app with all needed Kubernetes objects with Helm (https://helm.sh/) or Kustomize (https://kustomize.io/)
