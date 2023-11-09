@@ -41,6 +41,7 @@ spec:
           resources:
             limits:
               memory: 128Mi
+              cpu: 500m
             requests:
               cpu: 50m
               memory: 64Mi
@@ -49,7 +50,13 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-public-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: local-ca-issuer
 spec:
+  tls: 
+    - hosts:
+      - hello{{ .config.local_domain_suffix }}
+      secretName: hello-cert
   rules:
     - host: hello{{ .config.local_domain_suffix }}
       http:
@@ -89,6 +96,7 @@ spec:
           resources:
             limits:
               memory: 128Mi
+              cpu: 1000m
             requests:
               cpu: 50m
               memory: 64Mi

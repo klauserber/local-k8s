@@ -1,0 +1,16 @@
+---
+global:
+  imageTag: 2308.22.7.patch7
+
+# mode: public
+mode: private-enterprise
+
+nxCloudAppURL: https://nx-cloud{{ .config.local_domain_suffix }}
+
+secret:
+  name: cloudsecret
+  nxCloudMongoServerEndpoint: 'NX_CLOUD_MONGO_SERVER_ENDPOINT'
+  adminPassword: 'ADMIN_PASSWORD'
+
+ingress:
+  skip: true

@@ -25,11 +25,12 @@ Linux/MacOS:
 docker run -d --hostname devbox -p 2080:2080 --rm \
   -v devboxhome:/home/coder \
   -v ${HOME}/.kube/config:/home/coder/.kube/config \
+  --name local-k8s-devbox \
   isi006/code-server-k8s:latest
 ```
 Windows:
 ```
-docker run -d --hostname devbox -p 2080:2080 --rm -v devboxhome:/home/coder -v %userprofile%/.kube/config:/home/coder/.kube/config isi006/code-server-k8s:latest
+docker run -d --hostname devbox -p 2080:2080 --rm -v devboxhome:/home/coder -v %userprofile%/.kube/config:/home/coder/.kube/config --name local-k8s-devbox isi006/code-server-k8s:latest
 ```
 Visit http://localhost:2080/ to access the devbox IDE.
 
