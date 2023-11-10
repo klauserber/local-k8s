@@ -1,3 +1,4 @@
 ---
-operator:
-  watchNamespace: "*"
+# operator:
+  # watchNamespace: "*"
+  # version: 0.8.2-arm64

@@ -5,12 +5,49 @@ global:
 # mode: public
 mode: private-enterprise
 
-nxCloudAppURL: https://nx-cloud{{ .config.local_domain_suffix }}
+nxCloudAppURL: https://nx-cloud{{ .config.public_domain_suffix }}
 
 secret:
   name: cloudsecret
   nxCloudMongoServerEndpoint: 'NX_CLOUD_MONGO_SERVER_ENDPOINT'
   adminPassword: 'ADMIN_PASSWORD'
+  githubAuthClientId: 'GITHUB_AUTH_CLIENT_ID'
+  githubAuthClientSecret: 'GITHUB_AUTH_CLIENT_SECRET'
 
 ingress:
   skip: true
+
+frontend:
+  resources:
+    limits: {}
+    requests:
+      memory: '0.5Gi'
+      cpu: '0.1'
+
+api:
+  resources:
+    limits: {}
+    requests:
+      memory: '1Gi'
+      cpu: '0.1'
+
+nxApi:
+  resources:
+    limits: {}
+    requests:
+      memory: '1Gi'
+      cpu: '0.1'
+
+fileServer:
+  resources:
+    limits: {}
+    requests:
+      memory: '0.5Gi'
+      cpu: '0.1'
+
+aggregator:
+  resources:
+    limits: {}
+    requests:
+      memory: '1200M'
+      cpu: '0.1'

@@ -5,16 +5,16 @@ metadata:
   name: nx-cloud-ingress
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: 1000m
-    cert-manager.io/cluster-issuer: local-ca-issuer
+    cert-manager.io/cluster-issuer: acme-issuer
   labels:
     app: nx-cloud
 spec:
-  tls: 
+  tls:
     - hosts:
-      - nx-cloud{{ .config.local_domain_suffix }}
+      - nx-cloud{{ .config.public_domain_suffix }}
       secretName: nx-cloud-cert
   rules:
-    - host: nx-cloud{{ .config.local_domain_suffix }}
+    - host: nx-cloud{{ .config.public_domain_suffix }}
       http:
         paths:
           - path: /nx-cloud

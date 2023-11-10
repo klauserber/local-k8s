@@ -1,5 +1,5 @@
 ---
-subdomain_suffix: -CHANGEME
-domain_suffix: -CHANGEME.loca.lt
+public_subdomain_suffix: CHANGEME
+public_domain_suffix: CHANGEME.example.com
 
 local_domain_suffix: .127.0.0.1.nip.io
